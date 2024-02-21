@@ -5,4 +5,6 @@ public interface ICalculadora<T extends Comparable<T>> {
     public void division(CustomStack<T> stack);
     public void addNumber(CustomStack<T> stack, int n);
     public boolean isNumber(String s);
+    public T calcular(CustomStack<T> stack, String[] operators);
+    public String[] convertir(String expression);
 }

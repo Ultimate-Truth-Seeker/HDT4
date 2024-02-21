@@ -4,17 +4,6 @@
  * @version 17-01-2024
  */
 public class Calculadora implements ICalculadora<Float> {
-    private static Calculadora instance;
-    private Calculadora() {
-
-    }
-    public static Calculadora getInstance(){
-        if (instance == null){
-            instance = new Calculadora();
-        }
-        return instance;
-    }
-
     /**
      * Método para sumar
      * @param stack la pila de numeros
@@ -91,4 +80,15 @@ public class Calculadora implements ICalculadora<Float> {
             return false;  
           }  
         }
+        
+    @Override
+    public Float calcular(CustomStack<Float> stack, String[] operators) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+    @Override
+    public String[] convertir(String expression) {
+        // TODO Auto-generated method stub
+        return null;
+    }
 }
