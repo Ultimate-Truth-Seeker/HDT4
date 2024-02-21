@@ -4,6 +4,16 @@
  * @version 17-01-2024
  */
 public class Calculadora implements ICalculadora<Float> {
+    private static Calculadora instance;
+    private Calculadora() {
+
+    }
+    public static Calculadora getInstance(){
+        if (instance == null){
+            instance = new Calculadora();
+        }
+        return instance;
+    }
     /**
      * Método para sumar
      * @param stack la pila de numeros
