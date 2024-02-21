@@ -175,7 +175,7 @@ public class Calculadora implements ICalculadora<Float> {
     @Override
     public String[] convertir(String expression) {
         StringBuilder postfix = new StringBuilder();
-        CustomStack<Character> stack = FactoryStack.getCustomStack("ListaSimple");  // Cambia "ListaSimple" por el tipo de pila que se quieras usar
+        CustomStack<Character> stack = FactoryStack.getCustomStack("SimplyLinkedList");  // Cambia "ListaSimple" por el tipo de pila que se quieras usar
         stack.push('#');
 
         for (char ch : expression.toCharArray()) {
