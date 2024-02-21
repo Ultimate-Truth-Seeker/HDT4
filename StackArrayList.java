@@ -1,5 +1,9 @@
 import java.util.ArrayList;
-
+/**
+ * Implementación de pila con uso de arreglo en lista
+ * 
+ * @version 20-02-2024
+ */
 public class StackArrayList<T extends Comparable<T>> implements CustomStack<T> {
     private ArrayList<T> stack;
     

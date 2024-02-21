@@ -1,5 +1,9 @@
 import java.util.Vector;
-
+/**
+ * Implementación de pila con uso de vector
+ * 
+ * @version 20-02-2024
+ */
 public class StackVector<T extends Comparable<T>> implements CustomStack<T>{
     private Vector<T> vector;
     public StackVector() {

@@ -1,8 +1,16 @@
 import java.util.ArrayList;
-
+/**
+ * Implementación de una lista simplemente encadenada
+ * 
+ * @version 20-02-2024
+ */
 public class ListaSimple<T extends Comparable<T>> implements IList<T> {
 
-   private ArrayList<T> listaSimple = new ArrayList<>();
+   private ArrayList<T> listaSimple;
+    
+    public ListaSimple() {
+        listaSimple = new ArrayList<>();
+    }
 
     @Override
     public T pop() {

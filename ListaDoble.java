@@ -1,8 +1,17 @@
 import java.util.LinkedList;
-
+/**
+ * Implementación de una lista doblemente encadenada
+ * 
+ * @version 20-02-2024
+ */
 public class ListaDoble<T extends Comparable<T>> implements IList<T> {
 
-   private LinkedList<T> listaDoble = new LinkedList<>();
+   private LinkedList<T> listaDoble;
+   
+
+    public ListaDoble() {
+        listaDoble = new LinkedList<>();
+    }
 
     @Override
     public T pop() {

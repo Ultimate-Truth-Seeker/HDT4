@@ -5,7 +5,7 @@
  * @author Ultimate-Truth-Seeker SaintPAge
  * @version 20 feb 2024
  */
-public class FactoryStack<T extends Comparable<T>> {
+public class FactoryStack {
     /**
      * Instancia la pila según el tipo que se le ingresa
      * En este factory se pueden instanciar de una vez las pilas y las listas

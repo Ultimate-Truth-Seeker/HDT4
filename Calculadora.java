@@ -3,14 +3,26 @@ import java.util.Map;
 
 /**
  * Clase Calculadora que implementa las funciones aritmeticas
+ * Para la implementación en la HDT4 se añadieron a la interfaz los métodos de conversión y de cálculo
+ * Se hizo esto con el objetivo de volver más ordenado el programa en Main.
+ * El algoritmo de cálculo es exactamente igual con algunos nombres de variables cambiados.
+ * Se utiliza además el patrón de diseño Singleton para esta implementación.
+ * 
  * @author SaintPage Ultimate-Truth-Seeker
- * @version 17-01-2024
+ * @version 20-02-2024
  */
 public class Calculadora implements ICalculadora<Float> {
     private static Calculadora instance;
     private Calculadora() {
 
     }
+    /**
+     * Método para retorna la instancia Singleton de la calculadora
+     * Verifica que el objeto no se anulo para instanciarlo, sino retorna ek exitsente
+     * utiliza un constructor privado para lograr este objetivo
+     * 
+     * @return la instancia Singleton de calculadora
+     */
     public static Calculadora getInstance(){
         if (instance == null){
             instance = new Calculadora();
@@ -93,7 +105,14 @@ public class Calculadora implements ICalculadora<Float> {
             return false;  
           }  
         }
-        
+    /**
+     * método para calcular con un stack una expresión tipo postix
+     * es el mismo algoritmo implementado en el Main de la HDT2 pero representado como método
+     * simplifica el código general
+     * @param stack la pila de trabajo
+     * @param operators el arreglo de operandos postfix
+     * @return el resultado de la operación
+     */
     @Override
     public Float calcular(CustomStack<Float> stack, String[] operators) {
         for (var operator : operators) {
@@ -137,6 +156,7 @@ public class Calculadora implements ICalculadora<Float> {
             }}}
         return stack.pop();
     }
+    
      private static final Map<Character, Integer> OPERATOR_PRECEDENCE = new HashMap<>() {{
         put('#', 0);  // Carácter especial inicial
         put('+', 1);
@@ -145,6 +165,13 @@ public class Calculadora implements ICalculadora<Float> {
         put('/', 2);
         put('^', 3);
     }};
+
+    /**
+     * Método para convertir una expresión infix a una postfix
+     * 
+     * @param expression un String con la expresión original
+     * @return la conversión a postfix en forma de arreglo de strings
+     */
     @Override
     public String[] convertir(String expression) {
         StringBuilder postfix = new StringBuilder();
