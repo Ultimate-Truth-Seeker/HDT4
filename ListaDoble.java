@@ -28,4 +28,12 @@ public class ListaDoble<T extends Comparable<T>> implements IList<T> {
     public T get(int index) {
         return listaDoble.get(index);
     }
+    @Override
+    public T peek() {
+        if (!listaDoble.isEmpty()) {
+            return listaDoble.getLast();
+        } else {
+            throw new IllegalStateException("Cannot peek into an empty stack");
+        }
+    }
 }

@@ -1,3 +1,6 @@
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Clase Calculadora que implementa las funciones aritmeticas
  * @author SaintPage Ultimate-Truth-Seeker
@@ -134,9 +137,44 @@ public class Calculadora implements ICalculadora<Float> {
             }}}
         return stack.pop();
     }
+     private static final Map<Character, Integer> OPERATOR_PRECEDENCE = new HashMap<>() {{
+        put('#', 0);  // Carácter especial inicial
+        put('+', 1);
+        put('-', 1);
+        put('*', 2);
+        put('/', 2);
+        put('^', 3);
+    }};
     @Override
     public String[] convertir(String expression) {
-        // TODO Auto-generated method stub
-        return null;
+        StringBuilder postfix = new StringBuilder();
+        CustomStack<Character> stack = FactoryStack.getCustomStack("ListaSimple");  // Cambia "ListaSimple" por el tipo de pila que se quieras usar
+        stack.push('#');
+
+        for (char ch : expression.toCharArray()) {
+            if (Character.isDigit(ch)) {
+                postfix.append(ch);
+            } else if (ch == '(') {
+                stack.push(ch);
+            } else if (ch == '^') {
+                stack.push(ch);
+            } else if (ch == ')') {
+                while (stack.size() > 0 && stack.peek() != '(') {
+                    postfix.append(stack.pop());
+                }
+                stack.pop();  // Elimina el '('
+            } else {
+                while (stack.size() > 0 && OPERATOR_PRECEDENCE.get(ch) <= OPERATOR_PRECEDENCE.get(stack.peek())) {
+                    postfix.append(stack.pop());
+                }
+                stack.push(ch);
+            }
+        }
+
+        while (stack.size() > 0 && stack.peek() != '#') {
+            postfix.append(stack.pop());
+        }
+
+        return postfix.toString().split("");
     }
 }

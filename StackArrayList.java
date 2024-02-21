@@ -25,4 +25,12 @@ public class StackArrayList<T extends Comparable<T>> implements CustomStack<T> {
         return stack.size();
     }
     
+    @Override
+    public T peek() {
+        if (!stack.isEmpty()) {
+            return stack.get(0);
+        } else {
+            throw new IllegalStateException("Cannot peek into an empty stack");
+        }
+    }
 }
