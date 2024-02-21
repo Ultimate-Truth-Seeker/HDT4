@@ -41,7 +41,7 @@ public class Main {
                 stack = FactoryStack.getCustomStack("Vector");
                 break;
             case 4:
-                stack = FactoryStack.getCustomStack("SimplyLinkedList");
+                stack = FactoryStack.getCustomStack("SinglyLinkedList");
                 break;
             case 5:
                 stack = FactoryStack.getCustomStack("DoublyLinkedList");

@@ -164,6 +164,8 @@ public class Calculadora implements ICalculadora<Float> {
         put('*', 2);
         put('/', 2);
         put('^', 3);
+        put('(', 0);
+        put(')', 0);
     }};
 
     /**
@@ -175,7 +177,7 @@ public class Calculadora implements ICalculadora<Float> {
     @Override
     public String[] convertir(String expression) {
         StringBuilder postfix = new StringBuilder();
-        CustomStack<Character> stack = FactoryStack.getCustomStack("SimplyLinkedList");  // Cambia "ListaSimple" por el tipo de pila que se quieras usar
+        CustomStack<Character> stack = FactoryStack.getCustomStack("SinglyLinkedList");  
         stack.push('#');
 
         for (char ch : expression.toCharArray()) {

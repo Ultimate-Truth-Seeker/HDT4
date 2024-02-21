@@ -23,7 +23,7 @@ public class FactoryStack {
                 return new StackArrayList<T>();
             case "Vector":
                 return new StackVector<T>();
-            case "SimplyLinkedList":
+            case "SinglyLinkedList":
                 return new ListaSimple<T>();
             case "DoublyLinkedList":
                 return new ListaDoble<T>();

@@ -31,7 +31,7 @@ public class Tests {
         CustomStack<Float> stack4 = FactoryStack.getCustomStack("DoublyLinkedList");
         Boolean b = true;
         
-        if (c.calcular(stack4, datos) == c.calcular(stack3, datos) && c.calcular(stack3, datos) == c.calcular(stack2, datos) && c.calcular(stack2, datos) == c.calcular(stack1, datos)) {
+        if (c.calcular(stack4, datos).equals(c.calcular(stack3, datos)) && c.calcular(stack3, datos).equals(c.calcular(stack2, datos)) && c.calcular(stack2, datos).equals(c.calcular(stack1, datos))) {
             b = true;
         } else {
             b = false;
