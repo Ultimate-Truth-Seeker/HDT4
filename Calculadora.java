@@ -132,7 +132,7 @@ public class Calculadora implements ICalculadora<Float> {
 
                 return null;
             }}}
-        return null;
+        return stack.pop();
     }
     @Override
     public String[] convertir(String expression) {
