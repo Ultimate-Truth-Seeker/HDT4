@@ -93,7 +93,45 @@ public class Calculadora implements ICalculadora<Float> {
         
     @Override
     public Float calcular(CustomStack<Float> stack, String[] operators) {
-        // TODO Auto-generated method stub
+        for (var operator : operators) {
+            boolean verificador = instance.isNumber(operator);
+           if(verificador){
+                //si es un numero
+                int op = Integer.parseInt(operator);
+                instance.addNumber(stack, op);
+           }
+           else{
+            try {
+                switch (operator) {
+                    case "+":
+                       instance.suma(stack);
+                        break;
+                    case "-":
+                        instance.resta(stack);
+                        break;
+                    case "*":
+                        instance.producto(stack);
+                        break;
+                    case "/":
+                        float divisor = stack.pop();
+                        if (divisor == 0.0) {
+                            System.out.println("Error. División entre cero");
+                            return null;
+                            
+                        }
+                        stack.push(divisor);
+                        instance.division(stack);
+                        break;
+                    
+                    default:
+                    System.out.println("Error. Hay un símbolo ajeno");
+                        return null;
+                }
+            } catch (Exception e) {
+                System.out.println("Error, hay más operaciones de las posibles de realizar");
+
+                return null;
+            }}}
         return null;
     }
     @Override
